@@ -1,0 +1,359 @@
+/*==========================================================================================================================================================================================================
+                                                                                            Mobile
+============================================================================================================================================================================================================*/
+@media only screen and (min-device-width : 320px) and (max-device-width : 599px) {
+div.Lista3{
+    height:100%;
+    width: 100%;
+    
+}
+div.Lista1{
+  overflow: auto;
+}
+::-webkit-scrollbar {
+}
+
+/* Track */
+::-webkit-scrollbar-track {
+    border-style: none;
+}
+ 
+/* Handle */
+::-webkit-scrollbar-thumb {
+    background: #ffffff00; 
+}
+div.Lista4{
+    height: 100%;
+    width: 100%;
+    margin-top: 20%;
+}
+#Usuario{
+    height: 130px;
+    width: 31%;
+    background-color: #009cde;
+    border-radius: 10px;
+    margin-left: 6px;
+    margin-bottom: 4px;
+    float: left;
+    text-align: center;
+    color: white;
+    padding: 4px;
+    background: url(https://scontent.fcgh14-1.fna.fbcdn.net/v/t1.0-9/37716338_693257597671899_6532164624605773824_n.jpg?_nc_cat=109&_nc_ht=scontent.fcgh14-1.fna&oh=95e721377c940e08257fd9863ebab103&oe=5C7872E5);
+    background-size: cover;
+    background-position: center;
+    margin-bottom: 20px;
+}
+.group {
+  position: relative;
+  margin: 45px 0;
+}
+
+.bar {
+  position: relative;
+  display: block;
+  width: 320px;
+}
+.bar:before {
+  content: '';
+  height: 2px;
+  width: 0;
+  bottom: 0px;
+  position: absolute;
+  background: #2196F3;
+  -webkit-transition: 300ms ease all;
+  transition: 300ms ease all;
+  left: 0%;
+}
+
+.btn {
+  background: #fff;
+  color: #959595;
+  border: none;
+  padding: 10px 20px;
+  border-radius: 3px;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+  text-decoration: none;
+  outline: none;
+  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.12), 0 1px 2px rgba(0, 0, 0, 0.24);
+  -webkit-transition: all 0.3s cubic-bezier(0.25, 0.8, 0.25, 1);
+  transition: all 0.3s cubic-bezier(0.25, 0.8, 0.25, 1);
+}
+.btn:hover {
+  color: #8b8b8b;
+  box-shadow: 0 7px 14px rgba(0, 0, 0, 0.18), 0 5px 5px rgba(0, 0, 0, 0.12);
+}
+.btn.btn-link {
+  background: #2196F3;
+  color: #d3eafd;
+}
+.btn.btn-link:hover {
+  background: #0d8aee;
+  color: #deeffd;
+}
+.btn.btn-submit {
+  background: #2196F3;
+  color: #bce0fb;
+}
+.btn.btn-submit:hover {
+  background: #0d8aee;
+  color: #deeffd;
+}
+.btn.btn-cancel {
+  background: #eee;
+}
+.btn.btn-cancel:hover {
+  background: #e1e1e1;
+  color: #8b8b8b;
+}
+
+.btn-box {
+  text-align: center;
+  margin: 50px 0;
+}
+#fuctionUSer{
+  width: 100%
+  height:100%;
+}
+#deletarUser{
+  width: 40px;
+  height: 40px;
+  background-color: #ff0000;
+  border-radius: 100px;
+  margin: 78% 5% 0% 0%;
+  float: right;
+}
+#deletarUser:hover{
+  background-color: #e0001f;
+  transition: 0.2s;
+}
+#deletarUserimg{
+  width: 80%;
+  height: 80%;
+  margin-top: 10%;
+}
+#editarUser{
+  width: 40px;
+  height: 40px;
+  background-color: #009cde;
+  border-radius: 100px;
+  margin:78% 0% 0% 5%;
+}
+#editarUser:hover{
+  background-color: #007bb0;
+  transition: 0.2s;
+}
+#editarUserimg{
+  width: 70%;
+  height: 70%;
+  margin-top: 15%;
+}
+}
+/*==========================================================================================================================================================================================================
+                                                                                            iPads
+============================================================================================================================================================================================================*/
+/* iPads (portrait and landscape) ----------- */
+@media only screen and (min-device-width : 600px) and (max-device-width : 1223px) {
+div.Lista1{
+  overflow: auto;
+}
+#Usuario{
+  height: 33%;
+  width: 30%;
+  background-color: #009cde;
+  border-radius: 10px;
+  margin: 7px;
+  float: left;
+  text-align: center;
+  color: white;
+  padding: 4px;
+  background: url(https://scontent.fcgh14-1.fna.fbcdn.net/v/t1.0-9/37716338_693257597671899_6532164624605773824_n.jpg?_nc_cat=109&_nc_ht=scontent.fcgh14-1.fna&oh=95e721377c940e08257fd9863ebab103&oe=5C7872E5);
+  background-size: cover;
+  background-position: center;
+  padding-top: auto;
+  margin-bottom: 70px;
+}
+div.Lista4{
+    height: 100%;
+    width: 100%;
+    margin-top: 10%;
+}
+#fuctionUSer{
+  width: 100%
+  height:100%;
+}
+#deletarUser{
+  width: 80px;
+  height: 80px;
+  background-color: #ff0000;
+  border-radius: 100px;
+  margin: 120% 5% 0% 0%;
+  float: right;
+}
+#deletarUser:hover{
+  background-color: #e0001f;
+  transition: 0.2s;
+}
+#deletarUserimg{
+  width: 80%;
+  height: 80%;
+  margin-top: 10%;
+}
+#editarUser{
+  width: 80px;
+  height: 80px;
+  background-color: #009cde;
+  border-radius: 100px;
+  margin:120% 0% 0% 5%;
+}
+#editarUser:hover{
+  background-color: #007bb0;
+  transition: 0.2s;
+}
+#editarUserimg{
+  width: 70%;
+  height: 70%;
+  margin-top: 15%;
+}
+}
+/*==========================================================================================================================================================================================================
+                                                                                            Desktops and laptops
+============================================================================================================================================================================================================*/
+/* Desktops and laptops ----------- */
+@media only screen  and (min-device-width : 1224px) and (max-device-width : 2560px) {
+div.Lista3{
+  float: left;
+    height: 100%;
+    width: 50%;
+}
+div.Lista4{
+    height: 100%;
+    width: 50%;
+    padding: 10px;
+    float: right;
+    overflow: auto;
+}
+#Usuario{
+  height: 33%;
+  width: 30%;
+  background-color: #009cde;
+  border-radius: 10px;
+  margin: 7px;
+  float: left;
+  text-align: center;
+  color: white;
+  padding: 4px;
+  background: url(https://scontent.fcgh14-1.fna.fbcdn.net/v/t1.0-9/37716338_693257597671899_6532164624605773824_n.jpg?_nc_cat=109&_nc_ht=scontent.fcgh14-1.fna&oh=95e721377c940e08257fd9863ebab103&oe=5C7872E5);
+  background-size: cover;
+  background-position: center;
+  padding-top: auto;
+  margin-bottom: 30px;
+}
+.group {
+  position: relative;
+  margin: 45px 0;
+}
+
+
+
+.bar {
+  position: relative;
+  display: block;
+  width: 320px;
+}
+.bar:before {
+  content: '';
+  height: 2px;
+  width: 0;
+  bottom: 0px;
+  position: absolute;
+  background: #2196F3;
+  -webkit-transition: 300ms ease all;
+  transition: 300ms ease all;
+  left: 0%;
+}
+
+.btn {
+  background: #fff;
+  color: #959595;
+  border: none;
+  padding: 10px 20px;
+  border-radius: 3px;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+  text-decoration: none;
+  outline: none;
+  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.12), 0 1px 2px rgba(0, 0, 0, 0.24);
+  -webkit-transition: all 0.3s cubic-bezier(0.25, 0.8, 0.25, 1);
+  transition: all 0.3s cubic-bezier(0.25, 0.8, 0.25, 1);
+}
+.btn:hover {
+  color: #8b8b8b;
+  box-shadow: 0 7px 14px rgba(0, 0, 0, 0.18), 0 5px 5px rgba(0, 0, 0, 0.12);
+}
+.btn.btn-link {
+  background: #2196F3;
+  color: #d3eafd;
+}
+.btn.btn-link:hover {
+  background: #0d8aee;
+  color: #deeffd;
+}
+.btn.btn-submit {
+  background: #2196F3;
+  color: #bce0fb;
+}
+.btn.btn-submit:hover {
+  background: #0d8aee;
+  color: #deeffd;
+}
+.btn.btn-cancel {
+  background: #eee;
+}
+.btn.btn-cancel:hover {
+  background: #e1e1e1;
+  color: #8b8b8b;
+}
+
+.btn-box {
+  text-align: center;
+  margin: 50px 0;
+}
+#fuctionUSer{
+  width: 100%
+  height:100%;
+}
+#deletarUser{
+  width: 50px;
+  height: 50px;
+  background-color: #ff0000;
+  border-radius: 100px;
+  margin: 78% 15% 0% 0%;
+  float: right;
+}
+#deletarUser:hover{
+  background-color: #e0001f;
+  transition: 0.2s;
+}
+#deletarUserimg{
+  width: 80%;
+  height: 80%;
+  margin-top: 10%;
+}
+#editarUser{
+  width: 50px;
+  height: 50px;
+  background-color: #009cde;
+  border-radius: 100px;
+  margin:78% 0% 0% 15%;
+}
+#editarUser:hover{
+  background-color: #007bb0;
+  transition: 0.2s;
+}
+#editarUserimg{
+  width: 70%;
+  height: 70%;
+  margin-top: 15%;
+}
+}
