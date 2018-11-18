@@ -8,32 +8,33 @@ var config = {
     }
 };
 
+//--------------------------- CRIAR UM NOVO USUARIO ---------------------------------------------------------------
 const btnLogin = document.querySelector("#btnA");
-
 btnLogin.addEventListener('click', function (event) {
     event.preventDefault();
-    console.log('ei');
+    console.log('Oi');
 
-    var primario = document.getElementById('primario').value;
-    var sobrenome = document.getElementById('sobrenome').value;
-    var email = document.getElementById('email').value;
-    var senha = document.getElementById('senha').value;
+    var nome = document.getElementById('nomeCadastro').value;
+    var sobrenome = document.getElementById('sobrenomeCadastro').value;
+    var tipo = document.getElementById('tipoCadastro').value;
+    var tipo = document.getElementById("tipoCadastro");
+        var itemSelecionado = tipo.options[tipo.selectedIndex].value;
+    var email = document.getElementById('emailCadastro').value;
+    var senha = document.getElementById('senhaCadastro').value;
 
     const data =
     {
-        "tipo": "COMUM",
-        "nome": primario,
+        "tipo": itemSelecionado,
+        "nome": nome,
         "sobrenome": sobrenome,
         "email": email,
         "senha": senha
     }
 
-
-    // console.log(JSON.stringify(data));
-
     axios.post("http://localhost:8080/service/usuario/novo", JSON.stringify(data), config)
         .then(function (response) {
             console.log(response);
+            location.reload();
         })
         .catch(function (error) {
             console.log(error);
@@ -41,8 +42,19 @@ btnLogin.addEventListener('click', function (event) {
 
 });
 
-function cadastrar(e) {
-    e.preventDefault();
-    console.log('ei')
+//--------------------------- VISUALIZAR USUARIOS ------------------------------------------------------------------
 
-}
+let usuarios;
+
+axios.get("http://localhost:8080/service/rest/usuarios", config)
+    .then(function (response) {
+        usuarios = response.data;
+        usuarios.forEach(dadosDosUsuarios => {
+
+            console.log(dadosDosUsuarios);
+
+        });
+    })
+    .catch(function (error) {
+        console.log(error.response);
+    });

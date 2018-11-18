@@ -6,7 +6,6 @@
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <title>BRQ Chamados</title>
 
-
     <link rel="stylesheet" type="text/css" href="vendor/bootstrap/css/bootstrap.min.css">
     <link rel="stylesheet" type="text/css" href="fonts/font-awesome-4.7.0/css/font-awesome.min.css">
     <link rel="stylesheet" type="text/css" href="vendor/animate/animate.css">
@@ -49,33 +48,33 @@
 
                     <div class="wrap-input100 validate-input" data-validate="Necessário colocar nome">
                         <span class="label-input100">Nome</span>
-                        <input id="primario" class="input100" type="text" name="nome" placeholder="Nome">
+                        <input id="nomeCadastro" class="input100" type="text" name="nomeCadastro" placeholder="Nome">
                         <span class="focus-input100"></span>
                     </div>
                     <div class="wrap-input100 validate-input" data-validate="Necessário colocar sobrenome">
                         <span class="label-input100">Sobrenome</span>
-                        <input id="sobrenome" class="input100" type="text" name="sobrenome" placeholder="Sobrenome">
+                        <input id="sobrenomeCadastro" class="input100" type="text" name="sobrenomeCadastro" placeholder="Sobrenome">
                         <span class="focus-input100"></span>
                     </div>
                     <div class="wrap-input100 input100-select">
                         <span class="label-input100">Tipo de usuário</span>
                         <div>
-                            <select class="selection-2" name="service">
-                                <option>Usuário Comum</option>
-                                <option>Administrador</option>
+                            <select id="tipoCadastro" class="selection-2" name="service">
+                                <option value="COMUM" selected="selected">Comum</option>
+                                <option value="ADMINISTRADOR" selected="selected">Administrador</option>
                             </select>
                         </div>
                         <span class="focus-input100"></span>
                     </div>
                     <div class="wrap-input100 validate-input" data-validate="Email invalido: exemplo@email.com">
                         <span class="label-input100">Email</span>
-                        <input id="email" class="input100" type="text" name="email" placeholder="Email">
+                        <input id="emailCadastro" class="input100" type="text" name="emailCadastro" placeholder="Email">
                         <span class="focus-input100"></span>
                     </div>
 
                     <div class="wrap-input100 validate-input" data-validate="Senha requisito: mínimo 5 e máximo 32 caracteres">
                         <span class="label-input100">Senha</span>
-                        <input id="senha" class="input100" type="password" name="email" placeholder="Senha">
+                        <input id="senhaCadastro" class="input100" type="password" name="senhaCadastro" placeholder="Senha">
                         <span class="focus-input100"></span>
                     </div>
 
@@ -94,18 +93,7 @@
                 </form>
             </div>
             <div id="dropDownSelect1"></div>
-
-            <!--===============================================================================================-->
-            <!--===============================================================================================-->
-
-            <!--===============================================================================================-->
             <script src="vendor/jquery/jquery-3.2.1.min.js"></script>
-            <!--===============================================================================================-->
-
-            <!--===============================================================================================-->
-
-
-            <!--===============================================================================================-->
             <script src="vendor/select2/select2.min.js"></script>
             <script>
                 $(".selection-2").select2({
@@ -134,14 +122,7 @@
 
                 gtag('config', 'UA-23581568-13');
             </script>
-
-            <!--===============================================================================================-->
-            <!--===============================================================================================-->
-            <!--===============================================================================================-->
-
             <script src="js_style/js04_btn.js"></script>
-
-
 
         </div>
         <div class="Lista4">
@@ -157,7 +138,7 @@
 
 
 
-    <!-- ------------------------------------------------------------ MENU ------------------------------------------------------------ -->
+    <!-- ------------------------------------------------------------ <MENU> ------------------------------------------------------------ -->
     <div class="container">
         <div class="component">
             <!------------------------------------------ Start Nav Structure 4 ------------------------------------------>
@@ -185,7 +166,7 @@
             <!------------------------------------------------------------------------------------------------------ End Nav Structure ------------------------------------------>
         </div>
     </div>
-    <!------------------------------------------ /container ------------------------------------------>
+    <!------------------------------------------ </MENU> ------------------------------------------>
 
     <script src="js_style/js03_nav.js"></script>
 
@@ -209,20 +190,3 @@
 </body>
 
 </html>
-
-<!--
-
-<div>
-    
-    <script>@import="botao com 4"</script>
-
-</div>
-
-
-<div>
-    
-    <script>@import="botao com 5"</script>
-
-</div>
-
--->

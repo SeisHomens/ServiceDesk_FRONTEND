@@ -13,9 +13,13 @@ let config = {
     headers: { 'Authorization': token.tokenBRQ }
 };
 
-let nome = token.nome;
+let idUsuario = token.id;
+let nomeUsuario = token.nome;
+let emailUsuario = token.email;
 
-console.log(nome);
+console.log(nomeUsuario);
+console.log(emailUsuario);
+console.log(idUsuario);
 
 const tabela = document.getElementById('tableBody');
 
@@ -29,7 +33,7 @@ axios.get("https://jira.brq.com/rest/api/2/search?jql=project='CDA'", config)
                 prior = field.priority;
                 status = field.status;
 
-            console.log(issue);
+            
 
             let tr = document.createElement('tr');
             tr.setAttribute('id', issue.key);
@@ -63,6 +67,8 @@ axios.get("https://jira.brq.com/rest/api/2/search?jql=project='CDA'", config)
 
             tr.appendChild(tdStatus);
             tdStatus.appendChild(aStatus);
+
+            console.log(issue);
 
         });
     })
