@@ -6,7 +6,7 @@ function openuser() {
     document.getElementById("userside").style.height = "60%";
   	 userclossclass.style.display = "block";
   	 usuarioinformclass.style.display = "block";
-  	 nomet.style.display = "none";
+  	 
   	 
 }
 

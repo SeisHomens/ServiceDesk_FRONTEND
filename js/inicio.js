@@ -1,11 +1,39 @@
-// var textoElement = document.getElementById('elementKey').textContent;
-// console.log(textoElement);
+var nomeUsuarioLogado = localStorage.getItem('nomeUsuarioLogado');
+var sobrenomeUsuarioLogado = localStorage.getItem('sobrenomeUsuarioLogado');
+var emailUsuarioLogado = localStorage.getItem('emailUsuarioLogado');
 
-//---------------------------ANOTAÇÕES-------------------------------------------------------------
+//-----------------------------------------------------
 
-let issues;
-let field;
-let status;
+const userside = document.getElementById('userside');
+
+let nomeExibicaoSup = document.createElement('div');
+nomeExibicaoSup.setAttribute('class', 'nomet');
+nomeExibicaoSup.setAttribute('id', 'nome');
+nomeExibicaoSup.textContent =  nomeUsuarioLogado + ' ' + sobrenomeUsuarioLogado;
+userside.appendChild(nomeExibicaoSup);
+
+//-----------------------------------------------------
+
+const usuarioInform = document.getElementById('Usuarioinform');
+
+let fotoUsuario = document.createElement('div');
+fotoUsuario.setAttribute('class', 'usuariofotoclass');
+fotoUsuario.setAttribute('id', 'usuariofoto');
+usuarioInform.appendChild(fotoUsuario);
+
+let nomeExibicao = document.createElement('div');
+nomeExibicao.setAttribute('id', 'nomee');
+nomeExibicao.textContent = 'Nome: ' + nomeUsuarioLogado + ' ' + sobrenomeUsuarioLogado;
+usuarioInform.appendChild(nomeExibicao);
+
+let emailExibicao = document.createElement('div');
+emailExibicao.setAttribute('id', 'nomee');
+emailExibicao.textContent = 'Email: ' + emailUsuarioLogado;
+usuarioInform.appendChild(emailExibicao);
+
+
+//--------------------------- CONFIG DE TOKEN ---------------------------------------------------------------------
+
 
 var token = parseJwt(localStorage.getItem('token'));
 
@@ -13,13 +41,20 @@ let config = {
     headers: { 'Authorization': token.tokenBRQ }
 };
 
-let idUsuario = token.id;
 let nomeUsuario = token.nome;
-let emailUsuario = token.email;
+localStorage.setItem('nomeUsuarioLogado', nomeUsuario);
 
-console.log(nomeUsuario);
-console.log(emailUsuario);
-console.log(idUsuario);
+let sobrenomeUsuario = token.sobrenome;
+localStorage.setItem('sobrenomeUsuarioLogado', sobrenomeUsuario);
+
+let emailUsuario = token.email;
+localStorage.setItem('emailUsuarioLogado', emailUsuario);
+
+//--------------------------- FAZENDO GET DE CHAMADOS -----------------------------------------------------------------
+
+let issues;
+let field;
+let status;
 
 const tabela = document.getElementById('tableBody');
 

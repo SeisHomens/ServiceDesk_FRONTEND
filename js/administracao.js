@@ -1,3 +1,38 @@
+var nomeUsuarioLogado = localStorage.getItem('nomeUsuarioLogado');
+var sobrenomeUsuarioLogado = localStorage.getItem('sobrenomeUsuarioLogado');
+var emailUsuarioLogado = localStorage.getItem('emailUsuarioLogado');
+
+//-----------------------------------------------------
+
+const userside = document.getElementById('userside');
+
+let nomeExibicaoSup = document.createElement('div');
+nomeExibicaoSup.setAttribute('class', 'nomet');
+nomeExibicaoSup.setAttribute('id', 'nome');
+nomeExibicaoSup.textContent =  nomeUsuarioLogado + ' ' + sobrenomeUsuarioLogado;
+userside.appendChild(nomeExibicaoSup);
+
+//-----------------------------------------------------
+
+const usuarioInform = document.getElementById('Usuarioinform');
+
+let fotoUsuario = document.createElement('div');
+fotoUsuario.setAttribute('class', 'usuariofotoclass');
+fotoUsuario.setAttribute('id', 'usuariofoto');
+usuarioInform.appendChild(fotoUsuario);
+
+let nomeExibicao = document.createElement('div');
+nomeExibicao.setAttribute('id', 'nomee');
+nomeExibicao.textContent = 'Nome: ' + nomeUsuarioLogado + ' ' + sobrenomeUsuarioLogado;
+usuarioInform.appendChild(nomeExibicao);
+
+let emailExibicao = document.createElement('div');
+emailExibicao.setAttribute('id', 'nomee');
+emailExibicao.textContent = 'Email: ' + emailUsuarioLogado;
+usuarioInform.appendChild(emailExibicao);
+
+
+//--------------------------- CONFIG DE TOKEN ---------------------------------------------------------------------
 var token = localStorage.getItem('token');
 
 var config = {
@@ -17,8 +52,8 @@ btnLogin.addEventListener('click', function (event) {
     var nome = document.getElementById('nomeCadastro').value;
     var sobrenome = document.getElementById('sobrenomeCadastro').value;
     var tipo = document.getElementById('tipoCadastro').value;
-    var tipo = document.getElementById("tipoCadastro");
-        var itemSelecionado = tipo.options[tipo.selectedIndex].value;
+    var tipo = document.getElementById('tipoCadastro');
+    var itemSelecionado = tipo.options[tipo.selectedIndex].value;
     var email = document.getElementById('emailCadastro').value;
     var senha = document.getElementById('senhaCadastro').value;
 
@@ -46,6 +81,8 @@ btnLogin.addEventListener('click', function (event) {
 
 let usuarios;
 
+const usuarioGrid = document.getElementById('usuarioGrid');
+
 axios.get("http://localhost:8080/service/rest/usuarios", config)
     .then(function (response) {
         usuarios = response.data;
@@ -53,8 +90,21 @@ axios.get("http://localhost:8080/service/rest/usuarios", config)
 
             console.log(dadosDosUsuarios);
 
+            let div = document.createElement('div');
+            div.setAttribute('id', dadosDosUsuarios.id);
+            usuarioGrid.appendChild(div);
+
+            let nomeSobrenomeUsuario = document.createElement('p');
+            nomeSobrenomeUsuario.textContent = dadosDosUsuarios.nome + ' ' + dadosDosUsuarios.sobrenome;
+            div.appendChild(nomeSobrenomeUsuario);
+
+
+
+
+
         });
     })
     .catch(function (error) {
         console.log(error.response);
     });
+
