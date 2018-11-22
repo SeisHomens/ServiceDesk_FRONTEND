@@ -7,7 +7,7 @@ var emailUsuarioLogado = localStorage.getItem('emailUsuarioLogado');
 const userside = document.getElementById('userside');
 
 let nomeExibicaoSup = document.createElement('div');
-nomeExibicaoSup.setAttribute('class', 'nometopo');
+nomeExibicaoSup.setAttribute('class', 'nomet');
 nomeExibicaoSup.setAttribute('id', 'nome');
 nomeExibicaoSup.textContent =  nomeUsuarioLogado + ' ' + sobrenomeUsuarioLogado;
 userside.appendChild(nomeExibicaoSup);

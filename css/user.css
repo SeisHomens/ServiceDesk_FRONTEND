@@ -14,7 +14,7 @@ div#nome{
     text-align: center;
     float: left;
     font-size: 100%;
-
+    display: block;
 }
 div#nomee{
     margin-top: 1%;
@@ -220,7 +220,7 @@ div#nome{
     text-align: center;
     float: left;
     font-size: 100%;
-
+    display: block;
 }
 div#nomee{
     margin-top: 1%;

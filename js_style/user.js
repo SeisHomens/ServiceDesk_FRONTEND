@@ -1,6 +1,6 @@
 var userclossclass = document.getElementById('usercloss');
 var usuarioinformclass = document.getElementById('Usuarioinform');
-var nomet = document.getElementById('nome');
+
 
 function openuser() {
     document.getElementById("userside").style.height = "60%";
