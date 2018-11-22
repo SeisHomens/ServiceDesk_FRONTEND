@@ -81,7 +81,7 @@ btnLogin.addEventListener('click', function (event) {
 
 let usuarios;
 
-const usuarioGrid = document.getElementById('usuarioGrid');
+const usuarioGrid = document.getElementById('Usuario');
 
 axios.get("http://localhost:8080/service/rest/usuarios", config)
     .then(function (response) {
@@ -90,16 +90,39 @@ axios.get("http://localhost:8080/service/rest/usuarios", config)
 
             console.log(dadosDosUsuarios);
 
-            let div = document.createElement('div');
-            div.setAttribute('id', dadosDosUsuarios.id);
-            usuarioGrid.appendChild(div);
+            let nomeLista = document.createElement('div');
+            nomeLista.setAttribute('id', dadosDosUsuarios.id);
+            usuarioGrid.appendChild(nomeLista);
 
-            let nomeSobrenomeUsuario = document.createElement('p');
-            nomeSobrenomeUsuario.textContent = dadosDosUsuarios.nome + ' ' + dadosDosUsuarios.sobrenome;
-            div.appendChild(nomeSobrenomeUsuario);
+            let nomeTitulo = document.createElement('p');
+            nomeTitulo.setAttribute('class', 'tituloNegrito');
+            nomeTitulo.textContent = 'Nome: ';
+            nomeLista.appendChild(nomeTitulo);
 
+            let nomeTexto = document.createElement('p');
+            nomeTexto.textContent = ' ' + dadosDosUsuarios.nome + ' ' + dadosDosUsuarios.sobrenome;
+            nomeLista.appendChild(nomeTexto);
+            
+            let emailTitulo = document.createElement('p');
+            emailTitulo.setAttribute('class', 'tituloNegrito');
+            emailTitulo.textContent = 'Email: ';
+            nomeLista.appendChild(emailTitulo);
 
+            let emailTexto = document.createElement('p');
+            emailTexto.textContent = ' ' + dadosDosUsuarios.email;
+            nomeLista.appendChild(emailTexto);
 
+            let tipoTitulo = document.createElement('p');
+            tipoTitulo.setAttribute('class', 'tituloNegrito');
+            tipoTitulo.textContent = 'Tipo: ';
+            nomeLista.appendChild(tipoTitulo);
+
+            let tipoTexto = document.createElement('p');
+            tipoTexto.textContent = ' ' + dadosDosUsuarios.tipo;
+            nomeLista.appendChild(tipoTexto);
+
+            let hr = document.createElement('hr');
+            nomeLista.appendChild(hr);
 
 
         });

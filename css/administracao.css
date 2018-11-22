@@ -30,7 +30,6 @@ div.Lista4{
 #Usuario{
     height: 130px;
     width: 31%;
-    background-color: #009cde;
     border-radius: 10px;
     margin-left: 6px;
     margin-bottom: 4px;
@@ -38,7 +37,6 @@ div.Lista4{
     text-align: center;
     color: white;
     padding: 4px;
-    background: url(https://scontent.fcgh14-1.fna.fbcdn.net/v/t1.0-9/37716338_693257597671899_6532164624605773824_n.jpg?_nc_cat=109&_nc_ht=scontent.fcgh14-1.fna&oh=95e721377c940e08257fd9863ebab103&oe=5C7872E5);
     background-size: cover;
     background-position: center;
     margin-bottom: 20px;
@@ -160,15 +158,12 @@ div.Lista1{
 #Usuario{
   height: 33%;
   width: 30%;
-  background-color: #009cde;
   border-radius: 10px;
   margin: 7px;
   float: left;
   text-align: center;
   color: white;
   padding: 4px;
-  background: url(https://scontent.fcgh14-1.fna.fbcdn.net/v/t1.0-9/37716338_693257597671899_6532164624605773824_n.jpg?_nc_cat=109&_nc_ht=scontent.fcgh14-1.fna&oh=95e721377c940e08257fd9863ebab103&oe=5C7872E5);
-  background-size: cover;
   background-position: center;
   padding-top: auto;
   margin-bottom: 70px;
@@ -235,15 +230,13 @@ div.Lista4{
 }
 #Usuario{
   height: 33%;
-  width: 30%;
-  background-color: #009cde;
+  width: 70%;
   border-radius: 10px;
   margin: 7px;
   float: left;
-  text-align: center;
-  color: white;
+  
+  color: black;
   padding: 4px;
-  background: url(https://scontent.fcgh14-1.fna.fbcdn.net/v/t1.0-9/37716338_693257597671899_6532164624605773824_n.jpg?_nc_cat=109&_nc_ht=scontent.fcgh14-1.fna&oh=95e721377c940e08257fd9863ebab103&oe=5C7872E5);
   background-size: cover;
   background-position: center;
   padding-top: auto;
@@ -356,4 +349,9 @@ div.Lista4{
   height: 70%;
   margin-top: 15%;
 }
+
+.tituloNegrito{
+  font-weight: bold;
+  color: #007bb0;
+  float: left;
 }
