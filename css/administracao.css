@@ -29,7 +29,7 @@ div.Lista4{
 }
 #Usuario{
     height: 130px;
-    width: 31%;
+    width: 100%;
     border-radius: 10px;
     margin-left: 6px;
     margin-bottom: 4px;
@@ -146,6 +146,11 @@ div.Lista4{
   height: 70%;
   margin-top: 15%;
 }
+.tituloNegrito{
+  font-weight: bold;
+  color: #007bb0;
+  float: left;
+}
 }
 /*==========================================================================================================================================================================================================
                                                                                             iPads
@@ -157,7 +162,7 @@ div.Lista1{
 }
 #Usuario{
   height: 33%;
-  width: 30%;
+  width: 100%;
   border-radius: 10px;
   margin: 7px;
   float: left;
@@ -209,6 +214,11 @@ div.Lista4{
   width: 70%;
   height: 70%;
   margin-top: 15%;
+}
+.tituloNegrito{
+  font-weight: bold;
+  color: #007bb0;
+  float: left;
 }
 }
 /*==========================================================================================================================================================================================================
