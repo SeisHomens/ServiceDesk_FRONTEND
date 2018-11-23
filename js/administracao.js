@@ -1,3 +1,5 @@
+//--------------------------- COMPONENTE PARA IDENTIFICAR O USUARIO NA PARTE DE CIMA ------------------------------
+
 var nomeUsuarioLogado = localStorage.getItem('nomeUsuarioLogado');
 var sobrenomeUsuarioLogado = localStorage.getItem('sobrenomeUsuarioLogado');
 var emailUsuarioLogado = localStorage.getItem('emailUsuarioLogado');
