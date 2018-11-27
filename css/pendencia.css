@@ -197,11 +197,11 @@ iframe {
 [ Input ]*/
 
 .wrap-input100 {
-  width: 100%;
+  width: 80%;
   position: relative;
   border-bottom: 2px solid #d9d9d9;
-  padding-bottom: 13px;
-  margin-bottom: 27px;
+  padding-bottom: 6px;
+  margin-bottom: 6px;
 }
 
 .label-input100 {
@@ -253,7 +253,7 @@ iframe {
 
 /*---------------------------------------------*/
 input.input100 {
-  height: 40px;
+  height: 30px;
 }
 
 
@@ -294,6 +294,7 @@ textarea.input100 {
   border-radius: 25px;
   overflow: hidden;
   margin: 0 auto;
+  margin-right: 20%;
 }
 
 .contact100-form-bgbtn {
@@ -569,7 +570,7 @@ textarea.input100 {
 
 form {
   width: 320px;
-  margin: 45px auto;
+  margin: 0px auto;
 }
 form h1 {
   font-size: 3em;
@@ -613,7 +614,7 @@ textarea {
   width: 320px;
   border: none;
   border-radius: 0;
-  border-bottom: 1px solid #c6c6c6;
+
 }
 input:focus,
 textarea:focus {
@@ -824,8 +825,16 @@ label {
   border: 0;
   transition: all .2s ease;
 }
-/*FIM DO UPLOAD*/
+.Lista3{
+  margin-left: 15%; 
+}
+.Lista1{
+  overflow: auto;
+  margin-left: 23%;
+  margin-right: 23%;
+}
 
+/*FIM DO UPLOAD*/
 
 
 

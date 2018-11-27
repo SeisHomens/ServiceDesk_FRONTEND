@@ -1,74 +1,45 @@
-var nomeUsuarioLogado = localStorage.getItem('nomeUsuarioLogado');
-var sobrenomeUsuarioLogado = localStorage.getItem('sobrenomeUsuarioLogado');
-var emailUsuarioLogado = localStorage.getItem('emailUsuarioLogado');
-
-//-----------------------------------------------------
-
-const userside = document.getElementById('userside');
-
-let nomeExibicaoSup = document.createElement('div');
-nomeExibicaoSup.setAttribute('class', 'nomet');
-nomeExibicaoSup.setAttribute('id', 'nome');
-nomeExibicaoSup.textContent =  nomeUsuarioLogado + ' ' + sobrenomeUsuarioLogado;
-userside.appendChild(nomeExibicaoSup);
-
-//-----------------------------------------------------
-
-const usuarioInform = document.getElementById('Usuarioinform');
-
-let fotoUsuario = document.createElement('div');
-fotoUsuario.setAttribute('class', 'usuariofotoclass');
-fotoUsuario.setAttribute('id', 'usuariofoto');
-usuarioInform.appendChild(fotoUsuario);
-
-let nomeExibicao = document.createElement('div');
-nomeExibicao.setAttribute('id', 'nomee');
-nomeExibicao.textContent = 'Nome: ' + nomeUsuarioLogado + ' ' + sobrenomeUsuarioLogado;
-usuarioInform.appendChild(nomeExibicao);
-
-let emailExibicao = document.createElement('div');
-emailExibicao.setAttribute('id', 'nomee');
-emailExibicao.textContent = 'Email: ' + emailUsuarioLogado;
-usuarioInform.appendChild(emailExibicao);
-
-
 //--------------------------- CONFIG DE TOKEN ---------------------------------------------------------------------
+var token = localStorage.getItem('token');
 
 var config = {
     headers: {
-        'Authorization': 'Basic YWRtaW5TZW5haTphZG1pblNlbmFpQDEyMw=='
+        'Authorization': toen
         , 'Content-Type': 'application/json'
-        , 'X-Atlassian-Token': 'nocheck'
-        , 'Access-Control-Allow-Origin': '*'
+        , 'Accept': 'application/json'
     }
 };
 
-function cadastrar() {
+//--------------------------- CRIAR UM NOVO USUARIO ---------------------------------------------------------------
+const btnCadastrarPendencia = document.querySelector("#btnCadastrar");
+btnCadastrarPendencia.addEventListener('click', function (event) {
+    event.preventDefault();
+    console.log('Oi');
 
-    var summary = document.getElementById('summary').value;
-    var description = document.getElementById('description').value;
+    var resumo = document.getElementById('resumoCadastro').value;
+    var descricao = document.getElementById('descricaoCadastro').value;
+    var rotulos = document.getElementById('rotulosCadastro').value;
+    var fabricante = document.getElementById('fabricanteCadastro').value;
+    var fabricante = document.getElementById('fabricanteCadastro');
+    var itemSelecionado = fabricante.options[fabricante.selectedIndex].value
+    var modelo = document.getElementById('modeloCadastro').value;
+    var garantia = document.getElementById('garantiaCadastro').value;
 
     const data = {
-        "fields": {
-            "project":
-            {
-                "key": "CDA"
-            },
-            "summary": summary,
-            "description": description,
-            "issueType": {
-                "name": "Servidor"
-            }
-        }
+        "resumo": resumo,
+        "descricao": descricao,
+        "rotulos": rotulos,
+        "fabricante": itemSelecionado,
+        "modelo": modelo,
+        "garantia": garantia
     }
 
-    // console.log(JSON.stringify(data));
-
-    axios.post("http://jira-homolog.brq.com/rest/api/2/issue", JSON.stringify(data), config)
+    axios.post("localhost:8080/service/rest/chamado/novo", JSON.stringify(data), config)
         .then(function (response) {
             console.log(response);
+            location.reload();
         })
         .catch(function (error) {
             console.log(error);
         });
-}
+
+});

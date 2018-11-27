@@ -46,8 +46,8 @@ var config = {
 };
 
 //--------------------------- CRIAR UM NOVO USUARIO ---------------------------------------------------------------
-const btnLogin = document.querySelector("#btnA");
-btnLogin.addEventListener('click', function (event) {
+const btnCadastrarUsuario = document.querySelector("#btnA");
+btnCadastrarUsuario.addEventListener('click', function (event) {
     event.preventDefault();
     console.log('Oi');
 

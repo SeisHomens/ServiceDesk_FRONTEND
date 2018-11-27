@@ -10,7 +10,7 @@
 	<link rel="stylesheet" type="text/css" href="css/navegador.css">
 	<script src="js_style/js02_nav.js"></script>
 	<script src="js/decryptToken.js"></script>
-	<script src="js/formulario.js"></script>
+
 	<script src="https://unpkg.com/axios/dist/axios.min.js"></script>
 	<link rel="stylesheet" type="text/css" href="css/user.css">
 	<link href="https://fonts.googleapis.com/css?family=Roboto+Slab" rel="stylesheet">
@@ -67,65 +67,113 @@
 
 <body>
 	<div id="userside" class="usersideclass" onclick="openuser()">
-        <!--<div id="nome" class="nomet">Giovanni</div>-->
-        <div id="Usuarioinform" class="usuarioinformclass">
-            <!--<div id="usuariofoto" class="usuariofotoclass"></div>-->
-            <!--<div id="nomee">Nome: Giovanni</div>-->
-            <!--<div id="nomee">E-mail: Dethgun21@gmail.com</div>-->
-        </div>
-    </div>
+		<div id="Usuarioinform" class="usuarioinformclass">
+		</div>
+	</div>
 
 	<div id="usercloss" class="userclossclass">
 	</div>
 	<script src="js_style/user.js"></script>
 
 	<div class="Lista1">
+		<div class="Lista3">
+			<div class="wrapper">
+				<form class="contact100-form validate-form">
 
-		<div class="Lista2">
+					<div class="wrap-input100 validate-input" data-validate="Necessário colocar nome">
+						<span class="label-input100">Resumo</span>
+						<input id="resumoCadastro" class="input100" type="text" name="resumoCadastro" placeholder="Resumo">
+						<span class="focus-input100"></span>
+					</div>
+					<div class="wrap-input100 validate-input" data-validate="Necessário colocar sobrenome">
+						<span class="label-input100">Descrição</span>
+						<input id="descricaoCadastro" class="input100" type="text" name="descricaoCadastro" placeholder="Descrição">
+						<span class="focus-input100"></span>
+					</div>
+					<div class="wrap-input100 validate-input" data-validate="Email invalido: exemplo@email.com">
+						<span class="label-input100">Rótulos</span>
+						<input id="rotulosCadastro" class="input100" type="text" name="rotulosCadastro" placeholder="Rótulos">
+						<span class="focus-input100"></span>
+					</div>
 
-			<input id="summary" type="text" placeholder="summary">
+					<div class="wrap-input100 input100-select">
+						<span class="label-input100">Fabricante</span>
+						<div>
+							<select id="fabricanteCadastro" class="selection-2" name="service">
+								<option value="Nenhum" selected="selected">Nenhum</option>
+								<option value="Apple">Apple</option>
+								<option value="Dell">Dell</option>
+								<option value="Lenovo">Lenovo</option>
 
-			<input id="description" type="text" placeholder="description">
+							</select>
+						</div>
+						<span class="focus-input100"></span>
+					</div>
+					<div class="wrap-input100 validate-input">
+						<span class="label-input100">Modelo</span>
+						<input id="modeloCadastro" class="input100" type="text" name="modeloCadastro" placeholder="Modelo">
+						<span class="focus-input100"></span>
+					</div>
 
-			<button type="submit" id="btnVai" onclick="cadastrar()">VAI</button>
+					<div class="wrap-input100 validate-input">
+						<span class="label-input100">Garantia</span>
+						<input id="garantiaCadastro" class="input100" type="text" name="garantiaCadastro" placeholder="Garantia">
+						<span class="focus-input100"></span>
+					</div>
+
+					<div class="container-contact100-form-btn">
+						<div class="wrap-contact100-form-btn">
+							<div class="contact100-form-bgbtn"></div>
+							<button class="contact100-form-btn" id="btnCadastrar">
+								<!-- onclick="cadastrar(e)"  -->
+								<span>
+									Cadastrar
+									<i class="fa fa-long-arrow-right m-l-7" aria-hidden="true"></i>
+								</span>
+							</button>
+						</div>
+					</div>
+				</form>
+			</div>
+			<div id="dropDownSelect1"></div>
+			<script src="vendor/jquery/jquery-3.2.1.min.js"></script>
+			<script src="vendor/select2/select2.min.js"></script>
+			<script>
+				$(".selection-2").select2({
+					minimumResultsForSearch: 20,
+					dropdownParent: $('#dropDownSelect1')
+				});
+			</script>
+			<!--===============================================================================================-->
+			<script src="vendor/daterangepicker/moment.min.js"></script>
+			<script src="vendor/daterangepicker/daterangepicker.js"></script>
+			<!--===============================================================================================-->
+			<script src="vendor/countdowntime/countdowntime.js"></script>
+			<!--===============================================================================================-->
+			<script src="js_style/main.js"></script>
+
+
+			<!-- Global site tag (gtag.js) - Google Analytics -->
+			<script async src="https://www.googletagmanager.com/gtag/js?id=UA-23581568-13"></script>
+			<script>
+				window.dataLayer = window.dataLayer || [];
+
+				function gtag() {
+					dataLayer.push(arguments);
+				}
+				gtag('js', new Date());
+
+				gtag('config', 'UA-23581568-13');
+			</script>
+			<script src="js_style/js04_btn.js"></script>
 
 		</div>
+		<div class="Lista4">
 
+			<div id="Usuario">
 
-		<div id="dropDownSelect1"></div>
-
-		<!--===============================================================================================-->
-		<script src="vendor/jquery/jquery-3.2.1.min.js"></script>
-		<!--===============================================================================================-->
-		<script src="vendor/animsition/js/animsition.min.js"></script>
-		<!--===============================================================================================-->
-		<script src="vendor/bootstrap/js/popper.js"></script>
-		<script src="vendor/bootstrap/js/bootstrap.min.js"></script>
-		<!--===============================================================================================-->
-		<script src="vendor/select2/select2.min.js"></script>
-		<script>
-			$(".selection-2").select2({
-				minimumResultsForSearch: 20,
-				dropdownParent: $('#dropDownSelect1')
-			});
-		</script>
-		<!--===============================================================================================-->
-		<script src="vendor/daterangepicker/moment.min.js"></script>
-		<script src="vendor/daterangepicker/daterangepicker.js"></script>
-		<!--===============================================================================================-->
-		<script src="vendor/countdowntime/countdowntime.js"></script>
-		<!--===============================================================================================-->
-		<script src="js_style/main.js"></script>
-
-		<!-- Global site tag (gtag.js) - Google Analytics -->
-		<script async src="https://www.googletagmanager.com/gtag/js?id=UA-23581568-13"></script>
-		<script>
-			window.dataLayer = window.dataLayer || [];
-			function gtag() { dataLayer.push(arguments); }
-			gtag('js', new Date());
-
-			gtag('config', 'UA-23581568-13');
-		</script>
+			</div>
+		</div>
 	</div>
 
 
@@ -170,6 +218,9 @@
 
 			<div id="myModal4" class="modal4">
 			</div>
+
+			<script src="js/formulario.js"></script>
+
 </body>
 
 </html>
