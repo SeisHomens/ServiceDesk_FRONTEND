@@ -11,7 +11,7 @@ const userside = document.getElementById('userside');
 let nomeExibicaoSup = document.createElement('div');
 nomeExibicaoSup.setAttribute('class', 'nomet');
 nomeExibicaoSup.setAttribute('id', 'nome');
-nomeExibicaoSup.textContent =  nomeUsuarioLogado + ' ' + sobrenomeUsuarioLogado;
+nomeExibicaoSup.textContent = nomeUsuarioLogado + ' ' + sobrenomeUsuarioLogado;
 userside.appendChild(nomeExibicaoSup);
 
 //-----------------------------------------------------
@@ -62,13 +62,14 @@ btnCadastrarUsuario.addEventListener('click', function (event) {
     const data =
     {
         "tipo": itemSelecionado,
+        //"projetoVinculado":...
         "nome": nome,
         "sobrenome": sobrenome,
         "email": email,
         "senha": senha
     }
 
-    axios.post("http://localhost:8080/service/usuario/novo", JSON.stringify(data), config)
+    axios.post("http://localhost:8080/service/rest/usuario/novo", JSON.stringify(data), config)
         .then(function (response) {
             console.log(response);
             location.reload();
@@ -104,7 +105,7 @@ axios.get("http://localhost:8080/service/rest/usuarios", config)
             let nomeTexto = document.createElement('p');
             nomeTexto.textContent = ' ' + dadosDosUsuarios.nome + ' ' + dadosDosUsuarios.sobrenome;
             nomeLista.appendChild(nomeTexto);
-            
+
             let emailTitulo = document.createElement('p');
             emailTitulo.setAttribute('class', 'tituloNegrito');
             emailTitulo.textContent = 'Email: ';

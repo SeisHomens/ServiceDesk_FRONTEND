@@ -3,7 +3,7 @@ var token = localStorage.getItem('token');
 
 var config = {
     headers: {
-        'Authorization': toen
+        'Authorization': token
         , 'Content-Type': 'application/json'
         , 'Accept': 'application/json'
     }
@@ -33,7 +33,7 @@ btnCadastrarPendencia.addEventListener('click', function (event) {
         "garantia": garantia
     }
 
-    axios.post("localhost:8080/service/rest/chamado/novo", JSON.stringify(data), config)
+    axios.post("http://localhost:8080/service/rest/chamado/novo", JSON.stringify(data), config)
         .then(function (response) {
             console.log(response);
             location.reload();

@@ -103,7 +103,35 @@ axios.get("https://jira.brq.com/rest/api/2/search?jql=project='CDA'", config)
             tr.appendChild(tdStatus);
             tdStatus.appendChild(aStatus);
 
-            console.log(issue);
+            //console.log(issue);
+
+        });
+    })
+    .catch(function (error) {
+        console.log(error.response);
+    });
+
+//--------------------------- FAZENDO GET DE tipos de pendencia -----------------------------------------------------------------
+
+let issueTypeConfig = {
+    headers: { 'Accept': 'application/json', 
+               'Content-Type' : 'application/json'}
+};
+
+let issuestype;
+
+const select = document.getElementById('brow');
+
+axios.get("https://jira.brq.com/rest/api/2/issuetype/", config)
+    .then(function (response) {
+        issuestype = response.data;
+        issuestype.forEach(issuetypeDados => {
+
+            let option = document.createElement('option');
+            option.setAttribute('value', issuetypeDados.name);
+            select.appendChild(option);
+
+            console.log(issuetypeDados);
 
         });
     })
