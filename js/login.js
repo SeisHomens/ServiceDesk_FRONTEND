@@ -22,7 +22,7 @@ btnLogin.addEventListener('click', function (event) {
 
     data = JSON.stringify(envio);
 
-    axios.post("http://localhost:8080/service/rest/auth/jwt", data, config)
+    axios.post("http://localhost:8085/service/rest/auth/jwt", data, config)
         .then(function (response) {
             localStorage.setItem('token', 'Bearer ' + response.data.token);
             location.href="inicio.html";
