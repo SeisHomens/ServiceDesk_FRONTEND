@@ -51,6 +51,9 @@ btnCadastrarUsuario.addEventListener('click', function (event) {
     event.preventDefault();
     console.log('Oi');
 
+    var projetoVinculado = document.getElementById("TipoProjeto").value
+    var projetoVinculado = document.getElementById("TipoProjeto");
+    var projetoSelecionado = projetoVinculado.options[projetoVinculado.selectedIndex].value
     var nome = document.getElementById('nomeCadastro').value;
     var sobrenome = document.getElementById('sobrenomeCadastro').value;
     var tipo = document.getElementById('tipoCadastro').value;
@@ -62,7 +65,7 @@ btnCadastrarUsuario.addEventListener('click', function (event) {
     const data =
     {
         "tipo": itemSelecionado,
-        //"projetoVinculado":...
+        "projetoVinculado": projetoSelecionado,
         "nome": nome,
         "sobrenome": sobrenome,
         "email": email,

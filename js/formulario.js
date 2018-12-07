@@ -70,6 +70,7 @@ axios.get("https://jira.brq.com/rest/api/2/issuetype/", config)
 
             let option = document.createElement('option');
             option.setAttribute('value', issuetypeDados.name);
+            option.textContent = issuetypeDados.name;
             select.appendChild(option);
 
             console.log(issuetypeDados);
@@ -116,7 +117,7 @@ btnCadastrarpendencia.addEventListener('click', function (event) {
         "dataCadastro": dataCadastro
     }
 
-    axios.post("http://localhost:8085/service/rest/chamado/novo", JSON.stringify(data), config)
+    axios.post("http://localhost:8085/service/rest/chamado/novo", JSON.stringify(data), configLocal)
         .then(function (response) {
             console.log(response);
             location.reload();
