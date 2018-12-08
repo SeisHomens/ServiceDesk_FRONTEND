@@ -33,13 +33,20 @@ emailExibicao.setAttribute('id', 'nomee');
 emailExibicao.textContent = 'Email: ' + emailUsuarioLogado;
 usuarioInform.appendChild(emailExibicao);
 
-
 //--------------------------- CONFIG DE TOKEN ---------------------------------------------------------------------
-var token = localStorage.getItem('token');
+var token = parseJwt(localStorage.getItem('token'));
 
 var config = {
     headers: {
         'Authorization': token
+        , 'Content-Type': 'application/json'
+        , 'Accept': 'application/json'
+    }
+};
+
+var configBRQ = {
+    headers: {
+        'Authorization': token.tokenBRQ
         , 'Content-Type': 'application/json'
         , 'Accept': 'application/json'
     }
@@ -51,21 +58,22 @@ btnCadastrarUsuario.addEventListener('click', function (event) {
     event.preventDefault();
     console.log('Oi');
 
-    var projetoVinculado = document.getElementById("TipoProjeto").value
-    var projetoVinculado = document.getElementById("TipoProjeto");
-    var projetoSelecionado = projetoVinculado.options[projetoVinculado.selectedIndex].value
+
+    var tipoPendencia = document.getElementById('tipoPendencia').value;
+    var tipoPendencia = document.getElementById('tipoPendencia');
+    var itemSelecionado1 = tipoPendencia.options[tipoPendencia.selectedIndex].value;
     var nome = document.getElementById('nomeCadastro').value;
     var sobrenome = document.getElementById('sobrenomeCadastro').value;
-    var tipo = document.getElementById('tipoCadastro').value;
-    var tipo = document.getElementById('tipoCadastro');
-    var itemSelecionado = tipo.options[tipo.selectedIndex].value;
+    var tipoHierarquico = document.getElementById('tipoHierarquico').value;
+    var tipoHierarquico = document.getElementById('tipoHierarquico');
+    var itemSelecionado2 = tipoHierarquico.options[tipoHierarquico.selectedIndex].value;
     var email = document.getElementById('emailCadastro').value;
     var senha = document.getElementById('senhaCadastro').value;
 
     const data =
     {
-        "tipo": itemSelecionado,
-        "projetoVinculado": projetoSelecionado,
+        "tipo": itemSelecionado2,
+        "projetoVinculado": itemSelecionado1,
         "nome": nome,
         "sobrenome": sobrenome,
         "email": email,
@@ -137,3 +145,24 @@ axios.get("http://localhost:8085/service/rest/usuarios", config)
         console.log(error.response);
     });
 
+let projects;
+
+const select = document.getElementById('tipoPendencia');
+
+axios.get("http://jira.brq.com/rest/api/2/project", configBRQ)
+    .then(function (response) {
+        projects = response.data;
+        projects.forEach(projectDados => {
+
+            let option = document.createElement('option');
+            option.setAttribute('value', projectDados.name);
+            option.textContent = projectDados.name;
+            select.appendChild(option);
+
+            console.log(response);
+
+        });
+    })
+    .catch(function (error) {
+        console.log(error.response);
+    });

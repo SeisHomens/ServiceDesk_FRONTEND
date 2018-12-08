@@ -9,7 +9,7 @@ const userside = document.getElementById('userside');
 let nomeExibicaoSup = document.createElement('div');
 nomeExibicaoSup.setAttribute('class', 'nomet');
 nomeExibicaoSup.setAttribute('id', 'nome');
-nomeExibicaoSup.textContent =  nomeUsuarioLogado + ' ' + sobrenomeUsuarioLogado;
+nomeExibicaoSup.textContent = nomeUsuarioLogado + ' ' + sobrenomeUsuarioLogado;
 userside.appendChild(nomeExibicaoSup);
 
 //-----------------------------------------------------
@@ -65,10 +65,10 @@ axios.get("https://jira.brq.com/rest/api/2/search?jql=project='CDA'", config)
 
             field = issue.fields;
 
-                prior = field.priority;
-                status = field.status;
+            prior = field.priority;
+            status = field.status;
 
-            
+
 
             let tr = document.createElement('tr');
             tr.setAttribute('id', issue.key);
@@ -82,7 +82,7 @@ axios.get("https://jira.brq.com/rest/api/2/search?jql=project='CDA'", config)
             let aPrior = document.createElement('a');
             aPrior.setAttribute('class', 'element');
             aPrior.setAttribute('id', 'elementPrior');
-            
+
             let tdStatus = document.createElement('td');
             let aStatus = document.createElement('a');
             aStatus.setAttribute('class', 'element');
@@ -113,10 +113,7 @@ axios.get("https://jira.brq.com/rest/api/2/search?jql=project='CDA'", config)
 
 //--------------------------- FAZENDO GET DE tipos de pendencia -----------------------------------------------------------------
 
-let issueTypeConfig = {
-    headers: { 'Accept': 'application/json', 
-               'Content-Type' : 'application/json'}
-};
+
 
 let issuestype;
 
