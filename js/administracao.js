@@ -33,6 +33,35 @@ emailExibicao.setAttribute('id', 'nomee');
 emailExibicao.textContent = 'Email: ' + emailUsuarioLogado;
 usuarioInform.appendChild(emailExibicao);
 
+var userclossclass = document.getElementById('usercloss');
+var usuarioinformclass = document.getElementById('Usuarioinform');
+var nomee = document.getElementById('nome');
+
+function openuser() {
+    document.getElementById("userside").style.height = "60%";
+     userclossclass.style.display = "block";
+     usuarioinformclass.style.display = "block";
+     nomee.style.display = "none";
+     
+}
+
+function closeuser() {
+    document.getElementById("userside").style.height = "5%";
+    userclossclass.style.display = "none";
+    usuarioinformclass.style.display = "none";
+    nomee.style.display = "block";
+ 
+}
+window.onclick = function(event) {
+            if (event.target == userclossclass) {
+                document.getElementById("userside").style.height = "5%";
+                userclossclass.style.display = "none";
+                usuarioinformclass.style.display = "none";
+                nomee.style.display = "block";
+                
+            }
+        }
+
 //--------------------------- CONFIG DE TOKEN ---------------------------------------------------------------------
 var token = parseJwt(localStorage.getItem('token'));
 
