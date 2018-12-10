@@ -59,9 +59,9 @@ btnCadastrarUsuario.addEventListener('click', function (event) {
     console.log('Oi');
 
 
-    var tipoPendencia = document.getElementById('tipoPendencia').value;
-    var tipoPendencia = document.getElementById('tipoPendencia');
-    var itemSelecionado1 = tipoPendencia.options[tipoPendencia.selectedIndex].value;
+    var tipoProjeto = document.getElementById('tipoProjeto').value;
+    var tipoProjeto = document.getElementById('tipoProjeto');
+    var itemSelecionado1 = tipoProjeto.options[tipoProjeto.selectedIndex].value;
     var nome = document.getElementById('nomeCadastro').value;
     var sobrenome = document.getElementById('sobrenomeCadastro').value;
     var tipoHierarquico = document.getElementById('tipoHierarquico').value;
@@ -147,7 +147,7 @@ axios.get("http://localhost:8085/service/rest/usuarios", config)
 
 let projects;
 
-const select = document.getElementById('tipoPendencia');
+const select = document.getElementById('tipoProjeto');
 
 axios.get("http://jira.brq.com/rest/api/2/project", configBRQ)
     .then(function (response) {

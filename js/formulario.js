@@ -82,11 +82,11 @@ axios.get("https://jira.brq.com/rest/api/2/issuetype/", config)
     });
 
 //--------------------------- CONFIG DE TOKEN ---------------------------------------------------------------------
-var token = localStorage.getItem('token');
+var tokenLocal = localStorage.getItem('token');
 
 var configLocal = {
     headers: {
-        'Authorization': token
+        'Authorization': tokenLocal
         , 'Content-Type': 'application/json'
         , 'Accept': 'application/json'
     }
@@ -102,19 +102,19 @@ btnCadastrarpendencia.addEventListener('click', function (event) {
     var descricao = document.getElementById('descricao').value;
     var tipoPendencia = document.getElementById('tipoPendencia').value;
     var tipoPendencia = document.getElementById('tipoPendencia');
-    var itemSelecionado = tipoPendencia.options[tipoPendencia.selectedIndex].value;
+    var tipoPendenciaSelecionado = tipoPendencia.options[tipoPendencia.selectedIndex].value;
     var contato = document.getElementById('contato').value;
     var dataCadastro = document.getElementById('dataCadastro').value;
-    
+
 
     const data =
     {
-        "usuario": emailUsuario,
-        "tipoPendencia": itemSelecionado,
-        "resumo": resumo,
-        "descricao": descricao,
-        "contato": contato,
-        "dataCadastro": dataCadastro
+        "usuario" : emailUsuarioLogado,
+        "tipoPendencia" : tipoPendenciaSelecionado,
+        "resumo" : resumo,
+        "descricao" : descricao,
+        "contato" : contato,
+        "dataCadastro" : dataCadastro
     }
 
     axios.post("http://localhost:8085/service/rest/chamado/novo", JSON.stringify(data), configLocal)
