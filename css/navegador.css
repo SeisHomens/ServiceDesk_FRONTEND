@@ -138,6 +138,14 @@ body {
   -moz-transition: opacity 0.3s, color 0.3s;
   transition: opacity 0.3s, color 0.3s;
 }
+/* ----------NAVEGADOR COM 3----------- */
+.csstransforms3 .cn-wrapper3 li a {
+
+  -webkit-transform: skew(-30deg) rotate(-60deg) scale(1);
+  -ms-transform: skew(-30deg) rotate(-60deg) scale(1);
+  -moz-transform: skew(-30deg) rotate(-60deg) scale(1);
+  transform: skew(-30deg) rotate(-60deg) scale(1);
+ }
 /* ----------NAVEGADOR COM 4----------- */
 .csstransforms4 .cn-wrapper4 li a {
 
@@ -159,6 +167,27 @@ body {
 .csstransforms .cn-wrapper li a span {
   font-size: 1.1em;
   opacity: 1;
+}
+/* ----------NAVEGADOR COM 3----------- */
+.csstransforms3 .cn-wrapper3 li:first-child {
+  -webkit-transform: rotate(0deg) skew(30deg);
+  -ms-transform: rotate(0deg) skew(30deg);
+  -moz-transform: rotate(0deg) skew(30deg);
+  transform: rotate(0deg) skew(30deg);
+}
+
+.csstransforms3 .cn-wrapper3 li:nth-child(2) {
+  -webkit-transform: rotate(60deg) skew(60deg);
+  -ms-transform: rotate(60deg) skew(60deg);
+  -moz-transform: rotate(60deg) skew(60deg);
+  transform: rotate(60deg) skew(30deg);
+}
+
+.csstransforms3 .cn-wrapper3 li:nth-child(3) {
+  -webkit-transform: rotate(120deg) skew(60deg);
+  -ms-transform: rotate(120deg) skew(60deg);
+  -moz-transform: rotate(120deg) skew(60deg);
+  transform: rotate(120deg) skew(30deg)
 }
 /* ----------NAVEGADOR COM 4----------- */
 .csstransforms4 .cn-wrapper4 li:first-child {
@@ -188,6 +217,7 @@ body {
   -moz-transform: rotate(135deg) skew(45deg);
   transform: rotate(135deg) skew(45deg);
 }
+
 /* ----------NAVEGADOR COM 5----------- */
 .csstransforms5 .cn-wrapper5 li:first-child {
   -webkit-transform: rotate(-10deg) skew(50deg);

@@ -134,7 +134,9 @@ if ( typeof define === 'function' && define.amd ) {
 
 (function(){
 
-  var button = document.getElementById('cn-button4'),
+  var button = document.getElementById('cn-button3'),
+    wrapper = document.getElementById('cn-wrapper3'),
+    button = document.getElementById('cn-button4'),
     wrapper = document.getElementById('cn-wrapper4'),
     button = document.getElementById('cn-button5'),
     wrapper = document.getElementById('cn-wrapper5'),
