@@ -79,6 +79,9 @@ localStorage.setItem('sobrenomeUsuarioLogado', sobrenomeUsuario);
 let emailUsuario = token.email;
 localStorage.setItem('emailUsuarioLogado', emailUsuario);
 
+let tipoUsuario = token.tipo;
+localStorage.setItem('tipoUsuarioLogado', tipoUsuario);
+
 //--------------------------- FAZENDO GET DE CHAMADOS -----------------------------------------------------------------
 
 let issues;
