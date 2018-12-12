@@ -108,18 +108,42 @@ axios.get("http://localhost:8085/service/rest/chamados", configLocal)
             situacaoChamado = 'Aberto';
             dataCadastroChamado = chamado.dataCadastro;
 
-            let trResumo = document.createElement('tr');
-            tabela.appendChild(trResumo);
+            let tr = document.createElement('tr');
+            tabela.appendChild(tr);
+
+            //------------- Resumo --------------------------
 
             let tdResumo = document.createElement('td');
-            trResumo.appendChild(tdResumo);
+            tr.appendChild(tdResumo);
 
             let aResumo = document.createElement('a');
             aResumo.setAttribute('href', 'chamado.html?id=' + chamado.id);
             aResumo.textContent = resumoChamado;
-            trResumo.appendChild(aResumo);
+            tdResumo.appendChild(aResumo);
 
-            console.log(chamado.id);
+            //------------- Situacao --------------------------
+
+            let tdSituacao = document.createElement('td');
+            tr.appendChild(tdSituacao);
+
+            let aSituacao = document.createElement('a');
+            aSituacao.setAttribute('href', 'chamado.html?id=' + chamado.id);
+            aSituacao.textContent = situacaoChamado;
+            tdSituacao.appendChild(aSituacao);
+
+            //------------- Situacao --------------------------
+
+            let tdDataCadastro = document.createElement('td');
+            tr.appendChild(tdDataCadastro);
+
+            let aDataCadastro = document.createElement('a');
+            aDataCadastro.setAttribute('href', 'chamado.html?id=' + chamado.id);
+            aDataCadastro.textContent = dataCadastroChamado;
+            tdDataCadastro.appendChild(aDataCadastro);
+
+
+
+            console.log(chamado);
         });
     })
     .catch(function (error) {
