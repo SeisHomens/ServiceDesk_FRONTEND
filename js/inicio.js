@@ -37,10 +37,10 @@ var nomee = document.getElementById('nome');
 
 function openuser() {
     document.getElementById("userside").style.height = "60%";
-     userclossclass.style.display = "block";
-     usuarioinformclass.style.display = "block";
-     nomee.style.display = "none";
-     
+    userclossclass.style.display = "block";
+    usuarioinformclass.style.display = "block";
+    nomee.style.display = "none";
+
 }
 
 function closeuser() {
@@ -48,26 +48,34 @@ function closeuser() {
     userclossclass.style.display = "none";
     usuarioinformclass.style.display = "none";
     nomee.style.display = "block";
- 
+
 }
-window.onclick = function(event) {
-            if (event.target == userclossclass) {
-                document.getElementById("userside").style.height = "5%";
-                userclossclass.style.display = "none";
-                usuarioinformclass.style.display = "none";
-                nomee.style.display = "block";
-                
-            }
-        }
+window.onclick = function (event) {
+    if (event.target == userclossclass) {
+        document.getElementById("userside").style.height = "5%";
+        userclossclass.style.display = "none";
+        usuarioinformclass.style.display = "none";
+        nomee.style.display = "block";
+
+    }
+}
 
 
 //--------------------------- CONFIG DE TOKEN ---------------------------------------------------------------------
 
-
+var tokenLocal = localStorage.getItem('token')
 var token = parseJwt(localStorage.getItem('token'));
 
 let config = {
     headers: { 'Authorization': token.tokenBRQ }
+};
+
+var configLocal = {
+    headers: {
+        'Authorization': token
+        , 'Content-Type': 'application/json'
+        , 'Accept': 'application/json'
+    }
 };
 
 let nomeUsuario = token.nome;
@@ -84,13 +92,68 @@ localStorage.setItem('tipoUsuarioLogado', tipoUsuario);
 
 //--------------------------- FAZENDO GET DE CHAMADOS -----------------------------------------------------------------
 
-let issues;
-let field;
-let status;
+let chamados;
+let resumoChamado;
+let situacaoChamado;
+let dataCadastroChamado
 
-const tabela = document.getElementById('tableBody');
+const tabela = document.getElementById('tabelaChamados');
 
-axios.get("https://jira.brq.com/rest/api/2/search?jql=project='CDA'", config)
+axios.get("http://localhost:8085/service/rest/chamados", configLocal)
+    .then(function (response) {
+        chamados = response.data;
+        chamados.forEach(chamado => {
+
+            resumoChamado = chamado.resumo;
+            situacaoChamado = 'Aberto';
+            dataCadastroChamado = chamado.dataCadastro;
+
+            let trResumo = document.createElement('tr');
+            tabela.appendChild(trResumo);
+
+            let tdResumo = document.createElement('td');
+            trResumo.appendChild(tdResumo);
+
+            let aResumo = document.createElement('a');
+            aResumo.setAttribute('href', 'chamado.html?id=' + chamado.id);
+            aResumo.textContent = resumoChamado;
+            trResumo.appendChild(aResumo);
+
+            console.log(chamado.id);
+        });
+    })
+    .catch(function (error) {
+        console.log(error.response);
+    });
+
+//--------------------------- FAZENDO GET DE tipos de pendencia -----------------------------------------------------------------
+
+
+
+let issuestype;
+
+const select = document.getElementById('brow');
+
+axios.get("https://jira.brq.com/rest/api/2/issuetype/", config)
+    .then(function (response) {
+        issuestype = response.data;
+        issuestype.forEach(issuetypeDados => {
+
+            let option = document.createElement('option');
+            option.setAttribute('value', issuetypeDados.name);
+            select.appendChild(option);
+
+            //console.log(token);
+
+        });
+    })
+    .catch(function (error) {
+        console.log(error.response);
+    });
+
+    /*
+    
+    axios.get("https://jira.brq.com/rest/api/2/search?jql=project='SERVICE DESK TEST'", config)
     .then(function (response) {
         issues = response.data.issues;
         issues.forEach(issue => {
@@ -135,7 +198,7 @@ axios.get("https://jira.brq.com/rest/api/2/search?jql=project='CDA'", config)
             tr.appendChild(tdStatus);
             tdStatus.appendChild(aStatus);
 
-            //console.log(issue);
+            console.log(response);
 
         });
     })
@@ -143,27 +206,4 @@ axios.get("https://jira.brq.com/rest/api/2/search?jql=project='CDA'", config)
         console.log(error.response);
     });
 
-//--------------------------- FAZENDO GET DE tipos de pendencia -----------------------------------------------------------------
-
-
-
-let issuestype;
-
-const select = document.getElementById('brow');
-
-axios.get("https://jira.brq.com/rest/api/2/issuetype/", config)
-    .then(function (response) {
-        issuestype = response.data;
-        issuestype.forEach(issuetypeDados => {
-
-            let option = document.createElement('option');
-            option.setAttribute('value', issuetypeDados.name);
-            select.appendChild(option);
-
-            console.log(issuetypeDados);
-
-        });
-    })
-    .catch(function (error) {
-        console.log(error.response);
-    });
+    */

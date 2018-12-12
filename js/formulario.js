@@ -37,10 +37,10 @@ var nomee = document.getElementById('nome');
 
 function openuser() {
     document.getElementById("userside").style.height = "60%";
-     userclossclass.style.display = "block";
-     usuarioinformclass.style.display = "block";
-     nomee.style.display = "none";
-     
+    userclossclass.style.display = "block";
+    usuarioinformclass.style.display = "block";
+    nomee.style.display = "none";
+
 }
 
 function closeuser() {
@@ -48,17 +48,17 @@ function closeuser() {
     userclossclass.style.display = "none";
     usuarioinformclass.style.display = "none";
     nomee.style.display = "block";
- 
+
 }
-window.onclick = function(event) {
-            if (event.target == userclossclass) {
-                document.getElementById("userside").style.height = "5%";
-                userclossclass.style.display = "none";
-                usuarioinformclass.style.display = "none";
-                nomee.style.display = "block";
-                
-            }
-        }
+window.onclick = function (event) {
+    if (event.target == userclossclass) {
+        document.getElementById("userside").style.height = "5%";
+        userclossclass.style.display = "none";
+        usuarioinformclass.style.display = "none";
+        nomee.style.display = "block";
+
+    }
+}
 
 
 //--------------------------- CONFIG DE TOKEN ---------------------------------------------------------------------
@@ -138,12 +138,12 @@ btnCadastrarpendencia.addEventListener('click', function (event) {
 
     const data =
     {
-        "usuario" : emailUsuarioLogado,
-        "tipoPendencia" : tipoPendenciaSelecionado,
-        "resumo" : resumo,
-        "descricao" : descricao,
-        "contato" : contato,
-        "dataCadastro" : dataCadastro
+        "usuario": emailUsuarioLogado,
+        "tipoPendencia": tipoPendenciaSelecionado,
+        "resumo": resumo,
+        "descricao": descricao,
+        "contato": contato,
+        "dataCadastro": dataCadastro
     }
 
     axios.post("http://localhost:8085/service/rest/chamado/novo", JSON.stringify(data), configLocal)
