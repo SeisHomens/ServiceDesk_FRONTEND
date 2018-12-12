@@ -72,7 +72,7 @@ let config = {
 
 var configLocal = {
     headers: {
-        'Authorization': token
+        'Authorization': tokenLocal
         , 'Content-Type': 'application/json'
         , 'Accept': 'application/json'
     }
@@ -145,6 +145,8 @@ axios.get("http://localhost:8085/service/rest/chamados", configLocal)
 
             console.log(chamado);
         });
+
+        console.log(configLocal)
     })
     .catch(function (error) {
         console.log(error.response);
