@@ -102,8 +102,6 @@ axios.get("https://jira.brq.com/rest/api/2/issuetype/", config)
             option.textContent = issuetypeDados.name;
             select.appendChild(option);
 
-            console.log(issuetypeDados);
-
         });
     })
     .catch(function (error) {
@@ -138,17 +136,16 @@ btnCadastrarpendencia.addEventListener('click', function (event) {
 
     const data =
     {
-        "usuario": emailUsuarioLogado,
-        "tipoPendencia": tipoPendenciaSelecionado,
-        "resumo": resumo,
-        "descricao": descricao,
-        "contato": contato,
-        "dataCadastro": dataCadastro
+        "usuario" : emailUsuarioLogado,
+        "tipoPendencia" : tipoPendenciaSelecionado,
+        "resumo" : resumo,
+        "descricao" : descricao,
+        "contato" : contato,
+        "dataCadastro" : dataCadastro
     }
 
-    axios.post("http://localhost:8080/service/rest/chamado/novo", JSON.stringify(data), configLocal)
+    axios.post("http://localhost:8085/service/rest/chamado/novo", JSON.stringify(data), configLocal)
         .then(function (response) {
-            console.log(response);
             location.reload();
         })
         .catch(function (error) {

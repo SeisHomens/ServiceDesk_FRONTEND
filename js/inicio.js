@@ -78,17 +78,7 @@ var configLocal = {
     }
 };
 
-let nomeUsuario = token.nome;
-localStorage.setItem('nomeUsuarioLogado', nomeUsuario);
 
-let sobrenomeUsuario = token.sobrenome;
-localStorage.setItem('sobrenomeUsuarioLogado', sobrenomeUsuario);
-
-let emailUsuario = token.email;
-localStorage.setItem('emailUsuarioLogado', emailUsuario);
-
-let tipoUsuario = token.tipo;
-localStorage.setItem('tipoUsuarioLogado', tipoUsuario);
 
 //--------------------------- FAZENDO GET DE CHAMADOS -----------------------------------------------------------------
 
@@ -99,7 +89,7 @@ let dataCadastroChamado
 
 const tabela = document.getElementById('tabelaChamados');
 
-axios.get("http://localhost:8080/service/rest/chamados", configLocal)
+axios.get("http://localhost:8085/service/rest/chamados", configLocal)
     .then(function (response) {
         chamados = response.data;
         chamados.forEach(chamado => {
@@ -117,7 +107,7 @@ axios.get("http://localhost:8080/service/rest/chamados", configLocal)
             tr.appendChild(tdResumo);
 
             let aResumo = document.createElement('a');
-            aResumo.setAttribute('href', 'chamado.html?id=' + chamado.id);
+            aResumo.setAttribute('href', 'inicio.html?id=' + chamado.id);
             aResumo.textContent = resumoChamado;
             tdResumo.appendChild(aResumo);
 
@@ -127,7 +117,7 @@ axios.get("http://localhost:8080/service/rest/chamados", configLocal)
             tr.appendChild(tdSituacao);
 
             let aSituacao = document.createElement('a');
-            aSituacao.setAttribute('href', 'chamado.html?id=' + chamado.id);
+            aSituacao.setAttribute('href', 'inicio.html?id=' + chamado.id);
             aSituacao.textContent = situacaoChamado;
             tdSituacao.appendChild(aSituacao);
 
@@ -137,16 +127,14 @@ axios.get("http://localhost:8080/service/rest/chamados", configLocal)
             tr.appendChild(tdDataCadastro);
 
             let aDataCadastro = document.createElement('a');
-            aDataCadastro.setAttribute('href', 'chamado.html?id=' + chamado.id);
+            aDataCadastro.setAttribute('href', 'inicio.html?id=' + chamado.id);
             aDataCadastro.textContent = dataCadastroChamado;
             tdDataCadastro.appendChild(aDataCadastro);
 
 
 
-            console.log(chamado);
+            //console.log(chamado);
         });
-
-        console.log(configLocal)
     })
     .catch(function (error) {
         console.log(error.response);
@@ -176,6 +164,88 @@ axios.get("https://jira.brq.com/rest/api/2/issuetype/", config)
     .catch(function (error) {
         console.log(error.response);
     });
+
+
+//-------------------------- Puxando chamado especifico ------------------------
+
+
+function getUrlVars() {
+    var vars = {};
+    var parts = window.location.href.replace(/[?&]+([^=&]+)=([^&]*)/gi, function (m, key, value) {
+        vars[key] = value;
+    });
+    return vars;
+}
+
+function getUrlParam(parameter, defaultvalue) {
+    var urlparameter = defaultvalue;
+    if (window.location.href.indexOf(parameter) > -1) {
+        urlparameter = getUrlVars()[parameter];
+    }
+    return urlparameter;
+}
+
+window.onload = function () {
+    var mytext = getUrlParam('id', 'Empty');
+    localStorage.setItem('idChamado', mytext);
+
+    let nomeUsuario = token.nome;
+    localStorage.setItem('nomeUsuarioLogado', nomeUsuario);
+
+    let sobrenomeUsuario = token.sobrenome;
+    localStorage.setItem('sobrenomeUsuarioLogado', sobrenomeUsuario);
+
+    let emailUsuario = token.email;
+    localStorage.setItem('emailUsuarioLogado', emailUsuario);
+
+    let tipoUsuario = token.tipo;
+    localStorage.setItem('tipoUsuarioLogado', tipoUsuario);
+}
+
+var chamadoId = localStorage.getItem('idChamado');
+
+const iResumo = document.getElementById('iResumo');
+const iTipo = document.getElementById('iTipo');
+const iContato = document.getElementById('iContato');
+const iDataCadastro = document.getElementById('iDataCadastro');
+const iCriador = document.getElementById('iCriador');
+const iDescricao = document.getElementById('iDescricao');
+
+axios.get("http://localhost:8085/service/rest/chamado/" + chamadoId, configLocal)
+    .then(function (response) {
+
+        var chamado = response.data;
+
+        let pResumo = document.createElement('p');
+        pResumo.textContent = chamado.resumo;
+        iResumo.appendChild(pResumo);
+
+        let pTipo = document.createElement('p');
+        pTipo.textContent = chamado.tipoPendencia;
+        iTipo.appendChild(pTipo);
+
+        let pContato = document.createElement('p');
+        pContato.textContent = chamado.contato;
+        iContato.appendChild(pContato);
+
+        let pDataCadastro = document.createElement('p');
+        pDataCadastro.textContent = chamado.dataCadastro;
+        iDataCadastro.appendChild(pDataCadastro);
+
+        let pCriador = document.createElement('p');
+        pCriador.textContent = chamado.usuario;
+        iCriador.appendChild(pCriador);
+
+        let pDescricao = document.createElement('p');
+        pDescricao.textContent = chamado.descricao;
+        iDescricao.appendChild(pDescricao);
+
+    })
+    .catch(function (error) {
+        console.log(error.response);
+    });
+
+
 
     /*
     

@@ -22,9 +22,11 @@ btnLogin.addEventListener('click', function (event) {
 
     data = JSON.stringify(envio);
 
-    axios.post("http://localhost:8080/service/rest/auth/jwt", data, config)
+    axios.post("http://localhost:8085/service/rest/auth/jwt", data, config)
         .then(function (response) {
+            localStorage.clear();
             localStorage.setItem('token', 'Bearer ' + response.data.token);
+            localStorage.setItem('idChamado', '1');
             location.href="inicio.html";
         })
         .catch(function (error) {

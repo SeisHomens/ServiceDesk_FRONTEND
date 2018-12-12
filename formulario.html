@@ -24,6 +24,7 @@
 	<script src="https://unpkg.com/axios/dist/axios.min.js"></script>
 	<link rel="stylesheet" type="text/css" href="css/user.css">
 	<link href="https://fonts.googleapis.com/css?family=Roboto+Slab" rel="stylesheet">
+
 </head>
 
 <body>
@@ -70,7 +71,7 @@
 
 		<div class="wrap-input100 validate-input" data-validate="Necessário colocar nome">
 			<span class="label-input100">Contato</span>
-			<input id="contato" class="input100" type="text" name="contato" placeholder="Telefone/Ramal">
+			<input id="contato" class="input100" type="tel" name="contato" pattern="[0-9]{2} [0-9]{5}-[0-9]{4}" placeholder="00 0000-0000" required>
 			<span class="focus-input100"></span>
 		</div>
 
@@ -78,7 +79,7 @@
 
 		<div class="wrap-input100 validate-input" data-validate="Necessário colocar nome">
 			<span class="label-input100">Data de Cadastro</span>
-			<input id="dataCadastro" class="input100" type="text" name="nomeCadastro" placeholder="Data de Cadastro">
+			<input id="dataCadastro" class="input100" type="date" name="nomeCadastro" placeholder="Data de Cadastro">
 			<span class="focus-input100"></span>
 		</div>
 
