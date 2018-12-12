@@ -99,7 +99,7 @@ let dataCadastroChamado
 
 const tabela = document.getElementById('tabelaChamados');
 
-axios.get("http://localhost:8085/service/rest/chamados", configLocal)
+axios.get("http://localhost:8080/service/rest/chamados", configLocal)
     .then(function (response) {
         chamados = response.data;
         chamados.forEach(chamado => {

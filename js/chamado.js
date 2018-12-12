@@ -29,7 +29,7 @@ let config = {
 
 const elementoPai = document.getElementById('componentesChamado');
 
-axios.get("http://localhost:8085/service/rest/chamado/" + chamadoId, config)
+axios.get("http://localhost:8080/service/rest/chamado/" + chamadoId, config)
     .then(function (response) {
 
         

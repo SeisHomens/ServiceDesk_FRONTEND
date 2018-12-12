@@ -146,7 +146,7 @@ btnCadastrarpendencia.addEventListener('click', function (event) {
         "dataCadastro": dataCadastro
     }
 
-    axios.post("http://localhost:8085/service/rest/chamado/novo", JSON.stringify(data), configLocal)
+    axios.post("http://localhost:8080/service/rest/chamado/novo", JSON.stringify(data), configLocal)
         .then(function (response) {
             console.log(response);
             location.reload();

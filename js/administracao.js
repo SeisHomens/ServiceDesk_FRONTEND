@@ -109,7 +109,7 @@ btnCadastrarUsuario.addEventListener('click', function (event) {
         "senha": senha
     }
 
-    axios.post("http://localhost:8085/service/rest/usuario/novo", JSON.stringify(data), config)
+    axios.post("http://localhost:8080/service/rest/usuario/novo", JSON.stringify(data), config)
         .then(function (response) {
             console.log(response);
             location.reload();
@@ -126,7 +126,7 @@ let usuarios;
 
 const usuarioGrid = document.getElementById('Usuario');
 
-axios.get("http://localhost:8085/service/rest/usuarios", config)
+axios.get("http://localhost:8080/service/rest/usuarios", config)
     .then(function (response) {
         usuarios = response.data;
         usuarios.forEach(dadosDosUsuarios => {
