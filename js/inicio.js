@@ -1,6 +1,8 @@
 var nomeUsuarioLogado = localStorage.getItem('nomeUsuarioLogado');
 var sobrenomeUsuarioLogado = localStorage.getItem('sobrenomeUsuarioLogado');
 var emailUsuarioLogado = localStorage.getItem('emailUsuarioLogado');
+var tipoUsuarioLogado = localStorage.getItem('tipoUsuarioLogado');
+var projetoVinculadoUsuarioLogado = localStorage.getItem('projetoVinculadoUsuarioLogado');
 
 //-----------------------------------------------------
 
@@ -144,7 +146,7 @@ axios.get("http://localhost:8085/service/rest/chamados", configLocal)
 
 
 
-let issuestype;
+/*let issuestype;
 
 const select = document.getElementById('brow');
 
@@ -164,7 +166,7 @@ axios.get("https://jira.brq.com/rest/api/2/issuetype/", config)
     .catch(function (error) {
         console.log(error.response);
     });
-
+*/
 
 //-------------------------- Puxando chamado especifico ------------------------
 
@@ -200,6 +202,9 @@ window.onload = function () {
 
     let tipoUsuario = token.tipo;
     localStorage.setItem('tipoUsuarioLogado', tipoUsuario);
+
+    let projetoVinculadoUsuario = token.projetoVinculado;
+    localStorage.setItem('projetoVinculadoUsuarioLogado', projetoVinculadoUsuario);
 }
 
 var chamadoId = localStorage.getItem('idChamado');
@@ -246,60 +251,26 @@ axios.get("http://localhost:8085/service/rest/chamado/" + chamadoId, configLocal
     });
 
 
+let issues;
 
-    /*
-    
-    axios.get("https://jira.brq.com/rest/api/2/search?jql=project='SERVICE DESK TEST'", config)
+const select = document.getElementById('brow');
+
+axios.get("https://jira.brq.com/rest/api/2/project/" + projetoVinculadoUsuarioLogado +"?", config)
     .then(function (response) {
-        issues = response.data.issues;
-        issues.forEach(issue => {
+        issues = response.data.issueTypes;
+        issues.forEach(issueType => {
 
-            field = issue.fields;
+            let option = document.createElement('option');
+            option.setAttribute('value', issueType.name);
+            select.appendChild(option);
 
-            prior = field.priority;
-            status = field.status;
-
-
-
-            let tr = document.createElement('tr');
-            tr.setAttribute('id', issue.key);
-
-            let tdKey = document.createElement('td');
-            let aKey = document.createElement('a');
-            aKey.setAttribute('class', 'element');
-            aKey.setAttribute('href', 'chamado.html?id=' + issue.key)
-
-            let tdPrior = document.createElement('td');
-            let aPrior = document.createElement('a');
-            aPrior.setAttribute('class', 'element');
-            aPrior.setAttribute('id', 'elementPrior');
-
-            let tdStatus = document.createElement('td');
-            let aStatus = document.createElement('a');
-            aStatus.setAttribute('class', 'element');
-            aStatus.setAttribute('id', 'elementStatus');
-
-            aKey.textContent = issue.key;
-            aPrior.textContent = prior.name;
-            aStatus.textContent = status.name;
-
-            tabela.appendChild(tr);
-
-            tr.appendChild(tdKey);
-            tdKey.appendChild(aKey);
-
-            tr.appendChild(tdPrior);
-            tdPrior.appendChild(aPrior);
-
-            tr.appendChild(tdStatus);
-            tdStatus.appendChild(aStatus);
-
-            console.log(response);
+            console.log(issueType.name);
+            
 
         });
+        console.log(response.data.issueTypes);
     })
     .catch(function (error) {
         console.log(error.response);
     });
 
-    */

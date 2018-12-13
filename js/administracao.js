@@ -184,11 +184,11 @@ axios.get("http://jira.brq.com/rest/api/2/project", configBRQ)
         projects.forEach(projectDados => {
 
             let option = document.createElement('option');
-            option.setAttribute('value', projectDados.name);
+            option.setAttribute('value', projectDados.key);
             option.textContent = projectDados.name;
             select.appendChild(option);
 
-            console.log(response);
+            console.log(projectDados);
 
         });
     })
