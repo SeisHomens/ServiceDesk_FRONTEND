@@ -123,6 +123,8 @@ axios.get("http://localhost:8085/service/rest/chamados", configLocal)
             aSituacao.textContent = situacaoChamado;
             tdSituacao.appendChild(aSituacao);
 
+
+
             //------------- Situacao --------------------------
 
             let tdDataCadastro = document.createElement('td');
@@ -132,6 +134,8 @@ axios.get("http://localhost:8085/service/rest/chamados", configLocal)
             aDataCadastro.setAttribute('href', 'inicio.html?id=' + chamado.id);
             aDataCadastro.textContent = dataCadastroChamado;
             tdDataCadastro.appendChild(aDataCadastro);
+
+            
 
 
 

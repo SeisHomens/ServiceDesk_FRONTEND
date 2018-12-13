@@ -109,7 +109,7 @@ axios.get("https://jira.brq.com/rest/api/2/issuetype/", config)
     });
 
 //--------------------------- CONFIG DE TOKEN ---------------------------------------------------------------------
-var tokenLocal = localStorage.getItem('token');
+var tokenLocal = parseJwt(localStorage.getItem('token'));
 
 var configLocal = {
     headers: {
