@@ -4,65 +4,6 @@ var emailUsuarioLogado = localStorage.getItem('emailUsuarioLogado');
 var tipoUsuarioLogado = localStorage.getItem('tipoUsuarioLogado');
 var projetoVinculadoUsuarioLogado = localStorage.getItem('projetoVinculadoUsuarioLogado');
 
-//-----------------------------------------------------
-
-const userside = document.getElementById('userside');
-
-let nomeExibicaoSup = document.createElement('div');
-nomeExibicaoSup.setAttribute('class', 'nomet');
-nomeExibicaoSup.setAttribute('id', 'nome');
-nomeExibicaoSup.textContent = nomeUsuarioLogado + ' ' + sobrenomeUsuarioLogado;
-userside.appendChild(nomeExibicaoSup);
-
-//-----------------------------------------------------
-
-const usuarioInform = document.getElementById('Usuarioinform');
-
-let fotoUsuario = document.createElement('div');
-fotoUsuario.setAttribute('class', 'usuariofotoclass');
-fotoUsuario.setAttribute('id', 'usuariofoto');
-usuarioInform.appendChild(fotoUsuario);
-
-let nomeExibicao = document.createElement('div');
-nomeExibicao.setAttribute('id', 'nomee');
-nomeExibicao.textContent = 'Nome: ' + nomeUsuarioLogado + ' ' + sobrenomeUsuarioLogado;
-usuarioInform.appendChild(nomeExibicao);
-
-let emailExibicao = document.createElement('div');
-emailExibicao.setAttribute('id', 'nomee');
-emailExibicao.textContent = 'Email: ' + emailUsuarioLogado;
-usuarioInform.appendChild(emailExibicao);
-
-var userclossclass = document.getElementById('usercloss');
-var usuarioinformclass = document.getElementById('Usuarioinform');
-var nomee = document.getElementById('nome');
-
-function openuser() {
-    document.getElementById("userside").style.height = "60%";
-    userclossclass.style.display = "block";
-    usuarioinformclass.style.display = "block";
-    nomee.style.display = "none";
-
-}
-
-function closeuser() {
-    document.getElementById("userside").style.height = "5%";
-    userclossclass.style.display = "none";
-    usuarioinformclass.style.display = "none";
-    nomee.style.display = "block";
-
-}
-window.onclick = function (event) {
-    if (event.target == userclossclass) {
-        document.getElementById("userside").style.height = "5%";
-        userclossclass.style.display = "none";
-        usuarioinformclass.style.display = "none";
-        nomee.style.display = "block";
-
-    }
-}
-
-
 //--------------------------- CONFIG DE TOKEN ---------------------------------------------------------------------
 
 var tokenLocal = localStorage.getItem('token')
@@ -100,6 +41,8 @@ axios.get("http://localhost:8085/service/rest/chamados", configLocal)
             situacaoChamado = 'Aberto';
             dataCadastroChamado = chamado.dataCadastro;
 
+            if(chamado.usuario == emailUsuarioLogado){
+
             let tr = document.createElement('tr');
             tabela.appendChild(tr);
 
@@ -135,42 +78,17 @@ axios.get("http://localhost:8085/service/rest/chamados", configLocal)
             aDataCadastro.textContent = dataCadastroChamado;
             tdDataCadastro.appendChild(aDataCadastro);
 
+        }else{
+            return null;
+        }
+
+            console.log(chamado);
             
-
-
-
-            //console.log(chamado);
         });
     })
     .catch(function (error) {
         console.log(error.response);
     });
-
-//--------------------------- FAZENDO GET DE tipos de pendencia -----------------------------------------------------------------
-
-
-
-/*let issuestype;
-
-const select = document.getElementById('brow');
-
-axios.get("https://jira.brq.com/rest/api/2/issuetype/", config)
-    .then(function (response) {
-        issuestype = response.data;
-        issuestype.forEach(issuetypeDados => {
-
-            let option = document.createElement('option');
-            option.setAttribute('value', issuetypeDados.name);
-            select.appendChild(option);
-
-            //console.log(token);
-
-        });
-    })
-    .catch(function (error) {
-        console.log(error.response);
-    });
-*/
 
 //-------------------------- Puxando chamado especifico ------------------------
 
