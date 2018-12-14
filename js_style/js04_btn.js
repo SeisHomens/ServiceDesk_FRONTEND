@@ -3,7 +3,7 @@ function readURL(input) {
 
     var reader = new FileReader();
 
-    reader.onload = function(e) {
+    reader.onload = function (e) {
       $('.image-upload-wrap').hide();
 
       $('.file-upload-image').attr('src', e.target.result);
@@ -25,8 +25,8 @@ function removeUpload() {
   $('.image-upload-wrap').show();
 }
 $('.image-upload-wrap').bind('dragover', function () {
-		$('.image-upload-wrap').addClass('image-dropping');
-	});
-	$('.image-upload-wrap').bind('dragleave', function () {
-		$('.image-upload-wrap').removeClass('image-dropping');
+  $('.image-upload-wrap').addClass('image-dropping');
+});
+$('.image-upload-wrap').bind('dragleave', function () {
+  $('.image-upload-wrap').removeClass('image-dropping');
 });

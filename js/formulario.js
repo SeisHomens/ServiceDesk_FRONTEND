@@ -34,7 +34,7 @@ let issues;
 
 const select = document.getElementById('tipoPendencia');
 
-axios.get("https://jira.brq.com/rest/api/2/project/" + projetoVinculadoUsuarioLogado +"?", config)
+axios.get("https://jira.brq.com/rest/api/2/project/" + projetoVinculadoUsuarioLogado + "?", config)
     .then(function (response) {
         issues = response.data.issueTypes;
         issues.forEach(issueType => {
@@ -45,7 +45,7 @@ axios.get("https://jira.brq.com/rest/api/2/project/" + projetoVinculadoUsuarioLo
             select.appendChild(option);
 
             console.log(issueType.name);
-            
+
 
         });
         console.log(response.data.issueTypes);
@@ -82,12 +82,12 @@ btnCadastrarpendencia.addEventListener('click', function (event) {
 
     const data =
     {
-        "usuario" : emailUsuarioLogado,
-        "tipoPendencia" : tipoPendenciaSelecionado,
-        "resumo" : resumo,
-        "descricao" : descricao,
-        "contato" : contato,
-        "dataCadastro" : dataCadastro
+        "usuario": emailUsuarioLogado,
+        "tipoPendencia": tipoPendenciaSelecionado,
+        "resumo": resumo,
+        "descricao": descricao,
+        "contato": contato,
+        "dataCadastro": dataCadastro
     }
 
     axios.post("http://localhost:8085/service/rest/chamado/novo", JSON.stringify(data), configLocal)

@@ -1,6 +1,6 @@
 var tipoUsuarioLogado = localStorage.getItem('tipoUsuarioLogado');
 
-if(tipoUsuarioLogado === 'ADMINISTRADOR'){
+if (tipoUsuarioLogado === 'ADMINISTRADOR') {
 
     const component = document.getElementById("component");
 
@@ -67,7 +67,7 @@ if(tipoUsuarioLogado === 'ADMINISTRADOR'){
 
     //console.log("É ADM");
 
-}else{
+} else {
 
     const component = document.getElementById("component");
 

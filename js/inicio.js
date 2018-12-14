@@ -6,7 +6,7 @@ var projetoVinculadoUsuarioLogado = localStorage.getItem('projetoVinculadoUsuari
 
 //--------------------------- CONFIG DE TOKEN ---------------------------------------------------------------------
 
-var tokenLocal = localStorage.getItem('token')
+
 var token = parseJwt(localStorage.getItem('token'));
 
 let config = {
@@ -15,7 +15,7 @@ let config = {
 
 var configLocal = {
     headers: {
-        'Authorization': tokenLocal
+        'Authorization': token
         , 'Content-Type': 'application/json'
         , 'Accept': 'application/json'
     }

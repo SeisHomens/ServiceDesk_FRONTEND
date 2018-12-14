@@ -27,7 +27,7 @@ btnLogin.addEventListener('click', function (event) {
             localStorage.clear();
             localStorage.setItem('token', 'Bearer ' + response.data.token);
             localStorage.setItem('idChamado', '1');
-            location.href="inicio.html";
+            location.href = "inicio.html";
         })
         .catch(function (error) {
             console.log(error.response);
